@@ -1,6 +1,6 @@
 const Loading = () =>{
     return(
-        <div>Loading</div>
+        <div>Loading for Vmax Martis</div>
     )
 }
 

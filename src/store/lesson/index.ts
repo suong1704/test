@@ -1,17 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getLessonById, getListLessonByModuleId } from "./action";
+import { LessonDetail } from "@/service/lesson";
 
-interface Lesson {
-  title: string;
-  description: string;
-}
+
 export interface PayloadLesson {
-  LessonData: Lesson;
+  LessonData: LessonDetail;
 }
 
 export interface InitialState {
   listLessonByModuleId: any;
-  detailLessonById: Lesson | any;
+  detailLessonById: LessonDetail | any;
 }
 const initialState: InitialState = {
   listLessonByModuleId: [],
@@ -29,6 +27,7 @@ const Lesson = createSlice({
       state.listLessonByModuleId = action.payload;
     })
     builder.addCase(getLessonById.fulfilled, (state, action) => {
+      console.log("action", action)
       state.detailLessonById = action.payload;
     })
     ;

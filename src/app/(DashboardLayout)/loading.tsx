@@ -1,7 +1,7 @@
-const Loading = () =>{
+const LoadingForPage = () =>{
     return(
         <div>Dash Loading</div>
     )
 }
 
-export default Loading;
+export default LoadingForPage;

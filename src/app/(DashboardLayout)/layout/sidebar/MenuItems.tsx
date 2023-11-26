@@ -64,24 +64,24 @@ const Menuitems = [
   //   navlabel: true,
   //   subheader: "Extra",
   // },
-  // {
-  //   id: uniqueId(),
-  //   title: "Typography",
-  //   icon: IconTypography,
-  //   href: "/utilities/typography",
-  // },
+  {
+    id: uniqueId(),
+    title: "Typography",
+    icon: IconTypography,
+    href: "/utilities/typography",
+  },
   // {
   //   id: uniqueId(),
   //   title: "Shadow",
   //   icon: IconCopy,
   //   href: "/utilities/shadow",
   // },
-  // {
-  //   id: uniqueId(),
-  //   title: "Icons",
-  //   icon: IconMoodHappy,
-  //   href: "/icons",
-  // }
+  {
+    id: uniqueId(),
+    title: "Icons",
+    icon: IconMoodHappy,
+    href: "/icons",
+  }
 ];
 
 export default Menuitems;

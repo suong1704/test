@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_GATEWAY_URL,
+  baseURL: process.env.REACT_APP_GATEWAY_URL, //?
 });
 
 type PROPS = {
@@ -48,7 +48,7 @@ const AxiosInterceptor: React.FC<PROPS> = ({ store, children }) => {
             case 400:
               break;
             case 401:
-              router.push("/authentication/login");
+              router.push("/authentication/login"); 
               break;
             case 403:
               break;

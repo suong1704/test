@@ -1,13 +1,13 @@
+import { lessonDetail_Dummy } from "@/app/(DashboardLayout)/utilities/dummy-data/lesson";
+import { LessonDetail } from "@/service/lesson";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-import { isNull } from "lodash";
 
 export const getListLessonByModuleId = createAsyncThunk(
   "lesson/getListLessonByModuleId",
   async (moduleId: number, { rejectWithValue }) => {
     try {
       // const response = await getModulesPublished(payload); api here
-      return [1,2,2,2,2,2,22,]
+      return [1, 2, 2, 2, 2, 2, 22];
     } catch (error: any) {
       return rejectWithValue(error.message);
     }
@@ -15,10 +15,21 @@ export const getListLessonByModuleId = createAsyncThunk(
 );
 export const getLessonById = createAsyncThunk(
   "lesson/getLessonById",
-  async (moduleId: number, { rejectWithValue }) => {
+  async (lessonId: number, { rejectWithValue }) => {
     try {
-      // const response = await getModulesPublished(payload); api here
-      return {}
+      // const response = await getLessonById(lessonId); api here
+      return lessonDetail_Dummy;
+    } catch (error: any) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+export const postNewLesson = createAsyncThunk(
+  "lesson/postNewLesson",
+  async (payload: LessonDetail, { rejectWithValue }) => {
+    try {
+      // const response = await creatNewLesson(payload); api here
+      return lessonDetail_Dummy;
     } catch (error: any) {
       return rejectWithValue(error.message);
     }
