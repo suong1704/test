@@ -54,34 +54,34 @@ const Menuitems = [
   //   icon: IconUserPlus,
   //   href: "/authentication/register",
   // },
-  {
-    navlabel: true,
-    subheader: "Extra",
-  },
-  {
-    id: uniqueId(),
-    title: "Typography",
-    icon: IconTypography,
-    href: "/utilities/typography",
-  },
-  {
-    id: uniqueId(),
-    title: "Shadow",
-    icon: IconCopy,
-    href: "/utilities/shadow",
-  },
-  {
-    id: uniqueId(),
-    title: "Icons",
-    icon: IconMoodHappy,
-    href: "/icons",
-  },
-  {
-    id: uniqueId(),
-    title: "Sample Page",
-    icon: IconAperture,
-    href: "/sample-page",
-  },
+  // {
+  //   navlabel: true,
+  //   subheader: "Extra",
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "Typography",
+  //   icon: IconTypography,
+  //   href: "/utilities/typography",
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "Shadow",
+  //   icon: IconCopy,
+  //   href: "/utilities/shadow",
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "Icons",
+  //   icon: IconMoodHappy,
+  //   href: "/icons",
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "Sample Page",
+  //   icon: IconAperture,
+  //   href: "/sample-page",
+  // },
 ];
 
 export default Menuitems;

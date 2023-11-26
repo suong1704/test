@@ -16,7 +16,7 @@ const Logo = () => {
     // <LinkStyled href="/">
     
     // </LinkStyled>
-    <Typography p={0.5} color={theme.palette.primary.main} variant="h1">Vmax Martis</Typography>
+    <Typography p={0.5} color={theme.palette.primary.main} variant="h1">Learning English</Typography>
   );
 };
 

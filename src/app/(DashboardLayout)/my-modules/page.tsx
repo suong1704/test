@@ -17,8 +17,8 @@ const MyModulePage = () => {
   const handleClose = () => setOpen(false);
   return (
     // eslint-disable-next-line react/no-children-prop
-    <PageContainer title="My Module ne" description="this is Sample page" >
-      <DashboardCard title="My Module ne" action={
+    <PageContainer title="My Modules" description="this is Sample page" >
+      <DashboardCard title="My Modules" action={
          <Button variant='contained' onClick={handleOpen} startIcon={<IconPlus fontSize={'small'} />}>New Module</Button>
       }>
         <Box>
