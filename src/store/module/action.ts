@@ -3,12 +3,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { isNull } from "lodash";
 import { Module } from ".";
 
-
 export const handlePostNewModule = createAsyncThunk(
   "module/handlePostNewModule",
-  async (idModule: number, { rejectWithValue }) => {
-   
-  }
+  async (idModule: number, { rejectWithValue }) => {}
 );
 
 export const getAllModulesPublished = createAsyncThunk(
@@ -16,7 +13,7 @@ export const getAllModulesPublished = createAsyncThunk(
   async (payload: any, { rejectWithValue }) => {
     try {
       // const response = await getModulesPublished(payload);
-      return [1,2,2,2,2,2,22,]
+      return [1, 2, 2, 2, 2, 2, 22];
     } catch (error: any) {
       return rejectWithValue(error.message);
     }
@@ -27,7 +24,18 @@ export const getListRecently = createAsyncThunk(
   async (payload: any, { rejectWithValue }) => {
     try {
       // const response = await getModulesPublished(payload);
-      return [1,2,2,2,2,2]
+      return [1, 2, 2, 2, 2, 2,2,2,2,2,2,2,];
+    } catch (error: any) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+export const getListMyModule = createAsyncThunk(
+  "module/getListMyModule",
+  async (userId: string, { rejectWithValue }) => {
+    try {
+      // const response = await getModulesPublished(payload);
+      return [1, 2, 2, 2, 2, 2,2,2,2,2,2,];
     } catch (error: any) {
       return rejectWithValue(error.message);
     }
@@ -35,7 +43,7 @@ export const getListRecently = createAsyncThunk(
 );
 
 export const getModuleById = createAsyncThunk(
-  "module/getListRecently",
+  "module/getModuleById",
   async (moduleId: number, { rejectWithValue }) => {
     try {
       // const response = await getModulesPublished(payload);
@@ -43,8 +51,8 @@ export const getModuleById = createAsyncThunk(
         title: "Vmax",
         description: "desc ",
         author: "Vmax Martis",
-        createdAt: "01-09-2000"
-      }
+        createdAt: "01-09-2000",
+      };
     } catch (error: any) {
       return rejectWithValue(error.message);
     }

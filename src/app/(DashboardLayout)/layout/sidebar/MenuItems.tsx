@@ -18,9 +18,15 @@ const Menuitems = [
 
   {
     id: uniqueId(),
-    title: "Today",
+    title: "Today1",
     icon: IconLayoutDashboard,
     href: "/",
+  },
+  {
+    id: uniqueId(),
+    title: "Today2",
+    icon: IconLayoutDashboard,
+    href: "/collection",
   },
   {
     id: uniqueId(),

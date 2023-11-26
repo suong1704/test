@@ -1,31 +1,39 @@
 'use client';
-import { Box, Button, ButtonBase, Fab, Grid, Typography } from '@mui/material';
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
-import ModuleCard from '@/components/ModuleCard';
-import { IconAd, IconPlus } from '@tabler/icons-react';
 import ModalNewModule from '@/components/ModalNewModule';
-import { useState } from 'react';
-import { useAppSelector } from '@/store/hooks';
+import ModuleCard from '@/components/ModuleCard';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { getListMyModule } from '@/store/module/action';
+import { Box, Button, Grid } from '@mui/material';
+import { IconPlus } from '@tabler/icons-react';
+import { useEffect, useState } from 'react';
 
 
 const MyModulePage = () => {
-  // const listMyModule = useAppSelector(state => state);
-  // console.log("listMyModule", listMyModule)
+  const listMyModule = useAppSelector(state => state.module.dataModuleUser);
+  const dispatch = useAppDispatch();
+  console.log("listMyModule", listMyModule)
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  // const [myModules, setMyModules] = useState<Array<any>>([]);
+
+  useEffect(() => {
+    if (listMyModule.length == 0) {
+      dispatch(getListMyModule('userId'))
+    }
+  }, [listMyModule.length])
+
   return (
     // eslint-disable-next-line react/no-children-prop
     <PageContainer title="My Modules" description="this is Sample page" >
       <DashboardCard title="My Modules" action={
-         <Button variant='contained' onClick={handleOpen} startIcon={<IconPlus fontSize={'small'} />}>New Module</Button>
+        <Button variant='contained' onClick={() => setOpen(true)} startIcon={<IconPlus fontSize={'small'} />}>New Module</Button>
       }>
         <Box>
           <Grid container spacing={3}>
-            {[1, 1, 1, 1, 1, 1, 1].map((module, index) => { return (<ModuleCard key={index} />) })}
+            {listMyModule.map((module, index) => { return (<ModuleCard key={index} />) })}
           </Grid>
-        <ModalNewModule open={open} handleClose={handleClose}/>
+          <ModalNewModule open={open} handleClose={() => setOpen(false)} />
         </Box>
       </DashboardCard>
     </PageContainer>

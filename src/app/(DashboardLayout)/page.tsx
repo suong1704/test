@@ -1,45 +1,45 @@
-'use client'
-import { Grid, Box } from '@mui/material';
+'use client';
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-// components
-import SalesOverview from '@/app/(DashboardLayout)/components/dashboard/SalesOverview';
-import YearlyBreakup from '@/app/(DashboardLayout)/components/dashboard/YearlyBreakup';
-import RecentTransactions from '@/app/(DashboardLayout)/components/dashboard/RecentTransactions';
-import ProductPerformance from '@/app/(DashboardLayout)/components/dashboard/ProductPerformance';
-import Blog from '@/app/(DashboardLayout)/components/dashboard/Blog';
-import MonthlyEarnings from '@/app/(DashboardLayout)/components/dashboard/MonthlyEarnings';
+import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
+import ModalNewModule from '@/components/ModalNewModule';
+import ModuleCard from '@/components/ModuleCard';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { getAllModulesPublished, getListMyModule } from '@/store/module/action';
+import { Box, Button, Grid } from '@mui/material';
+import { IconPlus } from '@tabler/icons-react';
+import { useEffect, useState } from 'react';
 
-const Dashboard = () => {
+
+const TodayPage = () => {
+  const listAllModule = useAppSelector(state => state.module.dataAllModules);
+  const dispatch = useAppDispatch();
+  console.log("listAllModule", listAllModule)
+  const [open, setOpen] = useState(false);
+  // const [myModules, setMyModules] = useState<Array<any>>([]);
+
+  useEffect(() => {
+    if (listAllModule.length == 0) {
+      dispatch(getAllModulesPublished('userId'))
+    }
+  }, [listAllModule.length])
+
   return (
-    <PageContainer title="Dashboard" description="this is Dashboard">
-      <Box>
-        <Grid container spacing={3}>
-          <Grid item xs={12} lg={8}>
-            <SalesOverview />
+    // eslint-disable-next-line react/no-children-prop
+    <PageContainer title="All Modules Public " description="this is Sample page" >
+      <DashboardCard title="All Modules Public "
+      // action={
+      //   <Button variant='contained' onClick={() => setOpen(true)} startIcon={<IconPlus fontSize={'small'} />}>New Module</Button>
+      // }
+      >
+        <Box>
+          <Grid container spacing={3}>
+            {listAllModule.map((module, index) => { return (<ModuleCard key={index} />) })}
           </Grid>
-          {/* <Grid item xs={12} lg={4}>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <YearlyBreakup />
-              </Grid>
-              <Grid item xs={12}>
-                <MonthlyEarnings />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} lg={4}>
-            <RecentTransactions />
-          </Grid>
-          <Grid item xs={12} lg={8}>
-            <ProductPerformance />
-          </Grid>
-          <Grid item xs={12}>
-            <Blog />
-          </Grid> */}
-        </Grid>
-      </Box>
+        </Box>
+      </DashboardCard>
     </PageContainer>
   );
-}
+};
 
-export default Dashboard;
+export default TodayPage;
+
