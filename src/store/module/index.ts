@@ -21,23 +21,17 @@ const initialState: InitialState = {
   dataModuleUser: []
 };
 
-const module = createSlice({
+const moduleSlice = createSlice({
   name: "module",
   initialState,
   reducers: {
-    clearDataDetail: (state: any) => {
-     
-    }
+    clearDataDetail: (state: any) => {},
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(handlePostNewModule.fulfilled, (state, action) => {
-       
-      })
+    builder.addCase(handlePostNewModule.fulfilled, (state, action) => {});
   },
 });
 
-export const { clearDataDetail } =
-  module.actions;
+export const { clearDataDetail } = moduleSlice.actions;
 
-export default module.reducer;
+export default moduleSlice.reducer;

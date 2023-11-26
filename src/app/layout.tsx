@@ -13,25 +13,30 @@ export default function RootLayout({
 }) {
 
   const router = useRouter();
-  const isLoginString: any = localStorage.getItem('isLogin') as String;
-  const isLogin: boolean = isLoginString ? JSON.parse(isLoginString) : false;
-  console.log(store, 'issLogin');
 
   useEffect(() => {
-    if (!isLogin) {
-      router.push('/authentication/login')
+    // Check if running on the client side
+    if (typeof window !== "undefined") {
+      const isLoginString: any = localStorage.getItem("isLogin") as String;
+      const isLogin: boolean = isLoginString
+        ? JSON.parse(isLoginString)
+        : false;
+
+      if (!isLogin) {
+        router.push("/authentication/login");
+      }
     }
-  }, [isLogin, router])
+  }, [router]);
 
   return (
     <html lang="en">
       <body>
-      {/* <Provider store={store}> */}
-        <ThemeProvider theme={baselightTheme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
-        {/* </Provider>         */}
+        <Provider store={store}>
+          <ThemeProvider theme={baselightTheme}>
+            <CssBaseline />
+            {children}
+          </ThemeProvider>
+        </Provider>
       </body>
     </html>
   );
