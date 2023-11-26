@@ -19,7 +19,9 @@ export default function RootLayout({
   console.log(isLogin , 'issLogin');
   
  useEffect(() => {
- router.push(isLogin ? '/' : '/authentication/login')
+  if (!isLogin) {
+    router.push('/authentication/login')
+  }
  },[isLogin, pathname])
   
   return (
