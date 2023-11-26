@@ -75,13 +75,7 @@ const Menuitems = [
   //   title: "Icons",
   //   icon: IconMoodHappy,
   //   href: "/icons",
-  // },
-  // {
-  //   id: uniqueId(),
-  //   title: "Sample Page",
-  //   icon: IconAperture,
-  //   href: "/sample-page",
-  // },
+  // }
 ];
 
 export default Menuitems;

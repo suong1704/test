@@ -2,23 +2,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import {
-  handlePostNewModule
+  getAllModulesPublished,
+  getListRecently,
+  getModuleById,
+  handlePostNewModule,
 } from "./action";
-interface Module {
-
-  title: string,
-  description: string
+export interface Module {
+  title: string;
+  description: string;
+  author: string;
+  createdAt: string;
 }
 export interface PayloadNewModule {
   moduleData: Module;
 }
 
 export interface InitialState {
-  dataModuleUser: [];
- 
+  dataModuleUser: Module[];
+  dataAllModules: Module[] | Array<any>;
+  dataRecentlyModules: Module[] | Array<any>;
+  detailModule: Module | any
 }
 const initialState: InitialState = {
-  dataModuleUser: []
+  dataModuleUser: [],
+  dataAllModules: [],
+  dataRecentlyModules: [],
+  detailModule: {}
 };
 
 const moduleSlice = createSlice({
@@ -29,6 +38,15 @@ const moduleSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(handlePostNewModule.fulfilled, (state, action) => {});
+    builder.addCase(getAllModulesPublished.fulfilled, (state, action) => {
+      state.dataAllModules = action.payload;
+    });
+    builder.addCase(getListRecently.fulfilled, (state, action) => {
+      state.dataRecentlyModules = action.payload;
+    });
+    builder.addCase(getModuleById.fulfilled, (state, action) => {
+      state.detailModule = action.payload;
+    });
   },
 });
 

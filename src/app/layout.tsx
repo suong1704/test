@@ -21,7 +21,6 @@ export default function RootLayout({
       const isLogin: boolean = isLoginString
         ? JSON.parse(isLoginString)
         : false;
-
       if (!isLogin) {
         router.push("/authentication/login");
       }
