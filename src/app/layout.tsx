@@ -4,8 +4,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useRouter } from 'next/navigation'
 import { useEffect } from "react";
-// import { useRouter } from "next/router";
-
+import { Provider } from 'react-redux';
+import  {store}  from "../store/index";
 export default function RootLayout({
   children,
 }: {
@@ -13,9 +13,9 @@ export default function RootLayout({
 }) {
 
   const router = useRouter();
-  const isLoginString: any = localStorage.getItem('isLogin');
+  const isLoginString: any = localStorage.getItem('isLogin') as String;
   const isLogin: boolean = isLoginString ? JSON.parse(isLoginString) : false;
-  console.log(isLogin, 'issLogin');
+  console.log(store, 'issLogin');
 
   useEffect(() => {
     if (!isLogin) {
@@ -26,10 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+      {/* <Provider store={store}> */}
         <ThemeProvider theme={baselightTheme}>
           <CssBaseline />
           {children}
         </ThemeProvider>
+        {/* </Provider>         */}
       </body>
     </html>
   );

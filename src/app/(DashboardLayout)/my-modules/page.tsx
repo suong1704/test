@@ -6,10 +6,12 @@ import ModuleCard from '@/components/ModuleCard';
 import { IconAd, IconPlus } from '@tabler/icons-react';
 import ModalNewModule from '@/components/ModalNewModule';
 import { useState } from 'react';
+import { useAppSelector } from '@/store/hooks';
 
 
 const MyModulePage = () => {
-  
+  // const listMyModule = useAppSelector(state => state);
+  // console.log("listMyModule", listMyModule)
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
