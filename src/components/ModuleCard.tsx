@@ -1,86 +1,70 @@
 
-import Link from "next/link";
+import BlankCard from "@/app/(DashboardLayout)/components/shared/BlankCard";
 import {
-  CardContent,
-  Typography,
-  Grid,
-  Rating,
-  Tooltip,
-  Fab,
   Avatar,
   Box,
+  CardContent,
+  Fab,
+  Grid,
+  Tooltip,
+  Typography
 } from "@mui/material";
-import img1 from "public/images/products/s4.jpg";
-import img2 from "public/images/products/s5.jpg";
-import img3 from "public/images/products/s7.jpg";
-import img4 from "public/images/products/s11.jpg";
 import { Stack } from "@mui/system";
 import { IconArrowBadgeRightFilled } from "@tabler/icons-react";
-import BlankCard from "@/app/(DashboardLayout)/components/shared/BlankCard";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import img1 from "public/images/products/s4.jpg";
 
 interface Module {
 
-    name: string,
-    desc: string,
-    author: string
+  name: string,
+  desc: string,
+  author: string
 }
 
-import { uniqueId } from "lodash";
 const ModuleCard = () => {
-    const router = useRouter();
-    const id = 'uniqueId'
+  const router = useRouter();
+  const id = 'uniqueId'
   return (
     <Grid item xs={12} md={4} lg={3} >
-        <Box onClick={() => {router.push(`module-detail/${id}`)}}>
-          <BlankCard >
-            {/* <Typography component={Link} href="/"> */}
-              <Image
-                src={img1}
-                alt="img"
-                style={{ width: "100%", height: "180px" }}
-              />
-            {/* </Typography> */}
-            <Tooltip title="Add To Cart">
-              <Fab
-                size="small"
-                color="primary"
-                sx={{ bottom: "75px", right: "15px", position: "absolute" }}
-              >
-                <IconArrowBadgeRightFilled size="16" />
-                <Avatar sx={{  }}>V</Avatar>
-              </Fab>
-            </Tooltip>
-            <CardContent sx={{ p: 3, pt: 2 }}>
-              <Typography variant="h6">Module Name</Typography>
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-                mt={1}
-              >
-                <Stack direction="row" alignItems="center">
-                  <Typography >Description</Typography>
-                  {/* <Typography
-                    color="textSecondary"
-                    ml={1}
-                    sx={{ textDecoration: "line-through" }}
-                  >
-                  ádsdas
-                  </Typography> */}
-                </Stack>
-                    {/* <Rating
-                    name="read-only"
-                    size="small"
-                    value={3}
-                    readOnly
-                    /> */}
+       <Tooltip title={'View Detail  '}>
+         <Box onClick={() => { router.push(`module-detail/${id}`) }}>
+        <BlankCard >
+          {/* <Typography component={Link} href="/"> */}
+          <Image
+            src={img1}
+            alt="img"
+            style={{ width: "100%", height: "144px",objectFit: "cover"  }}
+          />
+          {/* </Typography> */}
+         
+            <Fab
+              size="small"
+              color="primary"
+              sx={{ bottom: "75px", right: "15px", position: "absolute" }}
+            >
+              <IconArrowBadgeRightFilled size="16" />
+              <Avatar sx={{}}>V</Avatar>
+            </Fab>
+     
+          <CardContent sx={{ p: 3, pt: 2 }}>
+            <Typography variant="h6">Module Name</Typography>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              mt={1}
+            >
+              <Stack direction="row" alignItems="center">
+                <Typography >Description</Typography>
               </Stack>
-            </CardContent>
-          </BlankCard>
-        </Box>
-        </Grid>
+            </Stack>
+          </CardContent>
+        </BlankCard>
+      </Box>
+       </Tooltip>
+     
+    </Grid>
   );
 };
 

@@ -28,7 +28,7 @@ const ModuleDetail = () => {
             Module Name
           </Typography>
           <Box m={1}>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} mt={2}>
 
        {[11,1,1].map((lesson, index) => {
 

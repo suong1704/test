@@ -13,17 +13,16 @@ export default function RootLayout({
 }) {
 
   const router = useRouter();
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
   const isLoginString: any = localStorage.getItem('isLogin');
   const isLogin: boolean = isLoginString ? JSON.parse(isLoginString) : false;
-  console.log(isLogin , 'issLogin');
-  
- useEffect(() => {
-  if (!isLogin) {
-    router.push('/authentication/login')
-  }
- },[isLogin, pathname])
-  
+  console.log(isLogin, 'issLogin');
+
+  useEffect(() => {
+    if (!isLogin) {
+      router.push('/authentication/login')
+    }
+  }, [isLogin, router])
+
   return (
     <html lang="en">
       <body>

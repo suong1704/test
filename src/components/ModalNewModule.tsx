@@ -1,3 +1,4 @@
+import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
 import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
 import { Box, Button, TextField } from '@mui/material';
 import Modal from '@mui/material/Modal';
@@ -35,6 +36,7 @@ export default function ModalNewModule({ open, handleClose }: Props) {
                         <TextField fullWidth label="Title" sx={{ mb: 2 }} />
                         <TextField fullWidth label="Description" id="fullWidth" />
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }} ><Button startIcon={<IconPlus color='white' />} variant='contained'>Create</Button> </Box>
+                    <CustomTextField/>
                     </Box>
                 </DashboardCard>
             </Box>
